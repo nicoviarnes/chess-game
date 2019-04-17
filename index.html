@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chess board</title>
+    <meta name="description" content="Two Player Chess Game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="top">
+      <h1 class="my-color" id="my-color"></h1>
+      <div class="buttons">
+        <button class="new-game-btn" id="new-game"><img src="assets/images/newgame.png"></button>
+        <button class="undo-btn" id="undo-btn"><img src="assets/images/undo.png"></button>
+      </div>
+      <h1 class="whose-turn" id="whose-turn"></h1>
+    </div>
+    <div class="container">
+      <span class="y-legend">
+        <div>8</div>
+        <div>7</div>
+        <div>6</div>
+        <div>5</div>
+        <div>4</div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </span>
+      <div class="cover"></div>
+      <h1 class="winner"></h1>
+      <div id="chessBoard" class="chess-board"></div>
+    </div>
+    <div class="x-legend">
+      <span>A</span>
+      <span>B</span>
+      <span>C</span>
+      <span>D</span>
+      <span>E</span>
+      <span>F</span>
+      <span>G</span>
+      <span>H</span>
+    </div>
+    <div class="visitors" id="visitors"></div>
+    <script>
+      //Initializes Chessboard
+      const letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+      for (let y = 0; y < 8; y++) {
+        for (let x = 0; x < 8; x++) {
+          const newDiv = $("<div>")
+            .attr("id", letters[x] + JSON.stringify(8 - y))
+            //.attr("data-x", letters[x])
+            //.attr("data-y", 8 - y)
+            ;
+          if ((x % 2 === 0 && y % 2 === 0) || (x % 2 !== 0 && y % 2 !== 0)) {
+            newDiv.addClass("white");
+          } else {
+            newDiv.addClass("black");
+          }
+          $("#chessBoard").append(newDiv);
+        }
+      }
+    </script>
+    <script src="assets/js/index.js" async defer></script>
+  </body>
+</html>

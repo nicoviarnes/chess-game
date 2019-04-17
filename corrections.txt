@@ -1,0 +1,16 @@
+DONE sweetalert on your turn
+
+DONE background color for most recent move
+
+DONE castle move
+
+DONE A passant does not capture (but does move)
+
+DONE Pawn promotion LOL
+
+DONE use viewport heights instead of widths
+
+DONE chessboard coordinates
+
+chat/display name on separate app
+
